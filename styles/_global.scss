@@ -1,0 +1,33 @@
+@use "tailwindcss";
+
+
+@font-face {
+  font-family: "inter";
+  src: url("/fonts/inter.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "krub";
+  src: url("/fonts/krub.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --white: #ffffff;
+  --black: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --white: #ffffff;
+    --black: #000000;
+  }
+}
+
+body {
+  background: white;
+  color: var(--foreground);
+}
