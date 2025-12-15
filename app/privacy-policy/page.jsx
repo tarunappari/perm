@@ -13,7 +13,7 @@ const page = () => {
         <div>
           <h2>Privacy Policy</h2>
           <p>
-            <span className={styles.highlight}>Last updated:</span> March 21,
+            <span className={styles.highlight}>Last updated:</span> December 3,
             2025
           </p>
           <p>
