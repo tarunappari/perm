@@ -1,6 +1,6 @@
 // app/api/cases/route.js
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/mongodb";
+import { connectToDatabase } from "@/lib/mongo/mongodb";
 import Case from "@/models/Case";
 
 export async function GET() {
