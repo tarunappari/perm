@@ -1,9 +1,11 @@
-
+import Graphs from "@/components/landingpage/graphs";
+import HeroSection from "@/components/landingpage/HeroSection";
 
 export default function Home() {
   return (
     <div>
-      home page
+      <HeroSection />
+      <Graphs />
     </div>
-  )
+  );
 }
