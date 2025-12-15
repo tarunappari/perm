@@ -1,0 +1,22 @@
+.container{
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 7rem;
+  align-items: center;
+
+  div{
+    display: flex;
+    gap: 2rem;
+
+    h1{
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    span{
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #141518;
+    }
+  }
+}

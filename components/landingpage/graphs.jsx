@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from 'react';
-import styles from '@/styles/Landingpage/graphs.module.scss';
+import React, { useState } from "react";
+import styles from "@/styles/Landingpage/graphs.module.scss";
 
 const Graphs = () => {
   const [hoveredDaily, setHoveredDaily] = useState(null);
@@ -11,19 +11,22 @@ const Graphs = () => {
   // Generate dates from Nov 16 to Dec 14 (today)
   const generateDailyCaseData = () => {
     const data = [];
-    const startDate = new Date('2024-11-16');
-    const endDate = new Date('2024-12-14');
+    const startDate = new Date("2024-11-16");
+    const endDate = new Date("2024-12-14");
 
     // Generate random but realistic case volumes
     const randomValues = [
-      120, 180, 220, 190, 160, 140, 100, 80, 150, 200,
-      240, 210, 180, 160, 140, 120, 100, 90, 110, 150,
-      180, 200, 220, 190, 170, 150, 130, 120, 140
+      120, 180, 220, 190, 160, 140, 100, 80, 150, 200, 240, 210, 180, 160, 140,
+      120, 100, 90, 110, 150, 180, 200, 220, 190, 170, 150, 130, 120, 140,
     ];
 
     let index = 0;
-    for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
-      const month = d.toLocaleString('en-US', { month: 'short' });
+    for (
+      let d = new Date(startDate);
+      d <= endDate;
+      d.setDate(d.getDate() + 1)
+    ) {
+      const month = d.toLocaleString("en-US", { month: "short" });
       const day = d.getDate();
       const value = randomValues[index % randomValues.length];
 
@@ -31,7 +34,7 @@ const Graphs = () => {
         date: `${month} ${day}`,
         fullDate: new Date(d),
         value: value,
-        status: value > 200 ? 'high' : value > 150 ? 'medium' : 'low'
+        status: value > 200 ? "high" : value > 150 ? "medium" : "low",
       });
       index++;
     }
@@ -43,58 +46,60 @@ const Graphs = () => {
 
   // Dummy data for Average Processing Time by Day (bar chart)
   const weeklyProcessingData = [
-    { day: 'Mon', value: 400, avgDays: 245 },
-    { day: 'Tue', value: 450, avgDays: 238 },
-    { day: 'Wed', value: 380, avgDays: 252 },
-    { day: 'Thu', value: 350, avgDays: 260 },
-    { day: 'Fri', value: 320, avgDays: 268 },
-    { day: 'Sat', value: 50, avgDays: 180 },
-    { day: 'Sun', value: 30, avgDays: 175 },
+    { day: "Mon", value: 400, avgDays: 245 },
+    { day: "Tue", value: 450, avgDays: 238 },
+    { day: "Wed", value: 380, avgDays: 252 },
+    { day: "Thu", value: 350, avgDays: 260 },
+    { day: "Fri", value: 320, avgDays: 268 },
+    { day: "Sat", value: 50, avgDays: 180 },
+    { day: "Sun", value: 30, avgDays: 175 },
   ];
 
   // Dummy data for Weekly Case Volume (bar chart with comparison)
   const weeklyCaseData = [
-    { week: 'W1', value: 2800, change: '+12%' },
-    { week: 'W2', value: 1000, change: '-64%' },
-    { week: 'W3', value: 2500, change: '+150%' },
-    { week: 'W4', value: 2000, change: '-20%' },
-    { week: 'W5', value: 2300, change: '+15%' },
-    { week: 'W6', value: 2700, change: '+17%' },
+    { week: "W1", value: 2800, change: "+12%" },
+    { week: "W2", value: 1000, change: "-64%" },
+    { week: "W3", value: 2500, change: "+150%" },
+    { week: "W4", value: 2000, change: "-20%" },
+    { week: "W5", value: 2300, change: "+15%" },
+    { week: "W6", value: 2700, change: "+17%" },
   ];
 
   // Dummy data for Monthly Volume Trend (area chart with multiple metrics)
   const monthlyTrendData = [
-    { month: 'Jan', approved: 4500, pending: 1200, denied: 300 },
-    { month: 'Feb', approved: 4200, pending: 1500, denied: 280 },
-    { month: 'Mar', approved: 4800, pending: 1100, denied: 320 },
-    { month: 'Apr', approved: 4600, pending: 1300, denied: 290 },
-    { month: 'May', approved: 4400, pending: 1400, denied: 310 },
-    { month: 'Jun', approved: 4700, pending: 1250, denied: 295 },
+    { month: "Jan", approved: 4500, pending: 1200, denied: 300 },
+    { month: "Feb", approved: 4200, pending: 1500, denied: 280 },
+    { month: "Mar", approved: 4800, pending: 1100, denied: 320 },
+    { month: "Apr", approved: 4600, pending: 1300, denied: 290 },
+    { month: "May", approved: 4400, pending: 1400, denied: 310 },
+    { month: "Jun", approved: 4700, pending: 1250, denied: 295 },
   ];
 
   // Helper function to normalize data for chart rendering
   const normalizeData = (data, key) => {
-    const values = data.map(d => d[key]);
+    const values = data.map((d) => d[key]);
     const max = Math.max(...values);
-    return data.map(d => ({
+    return data.map((d) => ({
       ...d,
-      normalized: (d[key] / max) * 100
+      normalized: (d[key] / max) * 100,
     }));
   };
 
-  const normalizedDailyData = normalizeData(dailyCaseData, 'value');
-  const normalizedWeeklyProcessing = normalizeData(weeklyProcessingData, 'value');
-  const normalizedWeeklyCases = normalizeData(weeklyCaseData, 'value');
+  const normalizedDailyData = normalizeData(dailyCaseData, "value");
+  const normalizedWeeklyProcessing = normalizeData(
+    weeklyProcessingData,
+    "value"
+  );
+  const normalizedWeeklyCases = normalizeData(weeklyCaseData, "value");
 
   // For monthly trend, we'll use approved cases
-  const normalizedMonthlyTrend = normalizeData(monthlyTrendData, 'approved');
+  const normalizedMonthlyTrend = normalizeData(monthlyTrendData, "approved");
 
   return (
     <div className={styles.graphContainer}>
       {/* Header Section */}
       <div className={styles.header}>
-        <h2 className={styles.mainTitle}>PERM Case Analytics Dashboard</h2>
-        <p className={styles.subtitle}>Real-time insights and trends for immigration case processing</p>
+        <h2>PERM Dashboard</h2>
       </div>
 
       {/* Charts Grid */}
@@ -102,18 +107,29 @@ const Graphs = () => {
         {/* Left Section - 2x2 Stats Grid */}
         <div className={styles.smallChartsGrid}>
           {/* Yesterday's Processed Cases */}
-          <div className={`${styles.chartCard} ${styles.smallChart} ${styles.statCard}`}>
+          <div
+            className={`${styles.chartCard} ${styles.smallChart} ${styles.statCard}`}
+          >
             <div className={styles.statHeader}>
-              <span className={styles.statTitle}>Yesterday's Processed Cases (RFI, Denied, Certified)</span>
+              <span className={styles.statTitle}>
+                Yesterday's Processed Cases (RFI, Denied, Certified)
+              </span>
             </div>
             <div className={styles.statContent}>
-              <div className={styles.statValue}>0</div>
+              <div className={styles.statValue}>520</div>
               <div className={styles.statChange}>
                 <span className={styles.negative}>-100%</span>
               </div>
             </div>
             <div className={styles.statIcon}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
               </svg>
@@ -121,9 +137,13 @@ const Graphs = () => {
           </div>
 
           {/* Yesterday's Certified Cases */}
-          <div className={`${styles.chartCard} ${styles.smallChart} ${styles.statCard}`}>
+          <div
+            className={`${styles.chartCard} ${styles.smallChart} ${styles.statCard}`}
+          >
             <div className={styles.statHeader}>
-              <span className={styles.statTitle}>Yesterday's Certified Cases</span>
+              <span className={styles.statTitle}>
+                Yesterday's Certified Cases
+              </span>
             </div>
             <div className={styles.statContent}>
               <div className={styles.statValue}>0</div>
@@ -132,7 +152,14 @@ const Graphs = () => {
               </div>
             </div>
             <div className={styles.statIcon}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#10b981"
+                strokeWidth="2"
+              >
                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                 <polyline points="22 4 12 14.01 9 11.01"></polyline>
               </svg>
@@ -140,7 +167,9 @@ const Graphs = () => {
           </div>
 
           {/* Last Sync */}
-          <div className={`${styles.chartCard} ${styles.smallChart} ${styles.statCard}`}>
+          <div
+            className={`${styles.chartCard} ${styles.smallChart} ${styles.statCard}`}
+          >
             <div className={styles.statHeader}>
               <span className={styles.statTitle}>Last Sync</span>
             </div>
@@ -149,7 +178,14 @@ const Graphs = () => {
               <div className={styles.statSubtext}>11:50 PM GMT-5:30</div>
             </div>
             <div className={styles.statIcon}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="2">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#8b5cf6"
+                strokeWidth="2"
+              >
                 <polyline points="23 4 23 10 17 10"></polyline>
                 <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
               </svg>
@@ -157,7 +193,9 @@ const Graphs = () => {
           </div>
 
           {/* Average Process Time */}
-          <div className={`${styles.chartCard} ${styles.smallChart} ${styles.statCard}`}>
+          <div
+            className={`${styles.chartCard} ${styles.smallChart} ${styles.statCard}`}
+          >
             <div className={styles.statHeader}>
               <span className={styles.statTitle}>Average Process Time</span>
             </div>
@@ -167,7 +205,14 @@ const Graphs = () => {
               <div className={styles.statSubtext}>As of 12/13/2025</div>
             </div>
             <div className={styles.statIcon}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ec4899" strokeWidth="2">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#ec4899"
+                strokeWidth="2"
+              >
                 <circle cx="12" cy="12" r="10"></circle>
                 <polyline points="12 6 12 12 16 14"></polyline>
               </svg>
@@ -195,34 +240,64 @@ const Graphs = () => {
               <span>0</span>
             </div>
             <div className={styles.lineChartContainer}>
-              <svg className={styles.lineChart} viewBox="0 0 800 200" preserveAspectRatio="none">
+              <svg
+                className={styles.lineChart}
+                viewBox="0 0 800 200"
+                preserveAspectRatio="none"
+              >
                 <defs>
-                  <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <linearGradient
+                    id="lineGradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="0%"
+                  >
                     <stop offset="0%" stopColor="#3b82f6" />
                     <stop offset="50%" stopColor="#8b5cf6" />
                     <stop offset="100%" stopColor="#ec4899" />
                   </linearGradient>
-                  <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <linearGradient
+                    id="areaGradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="0%"
+                    y2="100%"
+                  >
                     <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.3" />
-                    <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.05" />
+                    <stop
+                      offset="100%"
+                      stopColor="#3b82f6"
+                      stopOpacity="0.05"
+                    />
                   </linearGradient>
                 </defs>
                 {/* Area under the line */}
                 <polygon
                   points={`
                     0,200
-                    ${normalizedDailyData.map((d, i) =>
-                      `${(i / (normalizedDailyData.length - 1)) * 800},${200 - (d.normalized * 2)}`
-                    ).join(' ')}
+                    ${normalizedDailyData
+                      .map(
+                        (d, i) =>
+                          `${(i / (normalizedDailyData.length - 1)) * 800},${
+                            200 - d.normalized * 2
+                          }`
+                      )
+                      .join(" ")}
                     800,200
                   `}
                   fill="url(#areaGradient)"
                 />
                 {/* Draw line with gradient */}
                 <polyline
-                  points={normalizedDailyData.map((d, i) =>
-                    `${(i / (normalizedDailyData.length - 1)) * 800},${200 - (d.normalized * 2)}`
-                  ).join(' ')}
+                  points={normalizedDailyData
+                    .map(
+                      (d, i) =>
+                        `${(i / (normalizedDailyData.length - 1)) * 800},${
+                          200 - d.normalized * 2
+                        }`
+                    )
+                    .join(" ")}
                   className={styles.linePath}
                   stroke="url(#lineGradient)"
                 />
@@ -231,7 +306,7 @@ const Graphs = () => {
                   <circle
                     key={i}
                     cx={(i / (normalizedDailyData.length - 1)) * 800}
-                    cy={200 - (d.normalized * 2)}
+                    cy={200 - d.normalized * 2}
                     r="5"
                     className={styles.lineDot}
                     onMouseEnter={() => setHoveredDaily(i)}
@@ -240,9 +315,14 @@ const Graphs = () => {
                 ))}
               </svg>
               {hoveredDaily !== null && (
-                <div className={styles.tooltip} style={{
-                  left: `${(hoveredDaily / (normalizedDailyData.length - 1)) * 100}%`
-                }}>
+                <div
+                  className={styles.tooltip}
+                  style={{
+                    left: `${
+                      (hoveredDaily / (normalizedDailyData.length - 1)) * 100
+                    }%`,
+                  }}
+                >
                   <div className={styles.tooltipContent}>
                     <strong>{dailyCaseData[hoveredDaily].date}</strong>
                     <span>{dailyCaseData[hoveredDaily].value} cases</span>
@@ -250,14 +330,18 @@ const Graphs = () => {
                 </div>
               )}
               <div className={styles.xAxisLabels}>
-                {dailyCaseData.filter((_, i) => {
-                  // Show labels at specific intervals to match the image
-                  // Approximately every 2-3 days
-                  const showIndices = [0, 3, 6, 9, 12, 15, 17, 19, 21, 23, 25, 28];
-                  return showIndices.includes(i);
-                }).map((d, i) => (
-                  <span key={i}>{d.date}</span>
-                ))}
+                {dailyCaseData
+                  .filter((_, i) => {
+                    // Show labels at specific intervals to match the image
+                    // Approximately every 2-3 days
+                    const showIndices = [
+                      0, 3, 6, 9, 12, 15, 17, 19, 21, 23, 25, 28,
+                    ];
+                    return showIndices.includes(i);
+                  })
+                  .map((d, i) => (
+                    <span key={i}>{d.date}</span>
+                  ))}
               </div>
             </div>
           </div>
@@ -268,7 +352,9 @@ const Graphs = () => {
           <div className={styles.cardHeader}>
             <div>
               <h3 className={styles.chartTitle}>Processing Volume by Day</h3>
-              <p className={styles.chartSubtitle}>Cases processed each weekday</p>
+              <p className={styles.chartSubtitle}>
+                Cases processed each weekday
+              </p>
             </div>
             <div className={styles.statBadge}>
               <span className={styles.statValue}>238</span>
@@ -300,7 +386,9 @@ const Graphs = () => {
                       {hoveredWeekly === i && (
                         <div className={styles.barTooltip}>
                           <strong>{weeklyProcessingData[i].value}</strong>
-                          <span>{weeklyProcessingData[i].avgDays} days avg</span>
+                          <span>
+                            {weeklyProcessingData[i].avgDays} days avg
+                          </span>
                         </div>
                       )}
                     </div>
@@ -351,7 +439,13 @@ const Graphs = () => {
                       {hoveredWeeklyCases === i && (
                         <div className={styles.barTooltip}>
                           <strong>{weeklyCaseData[i].value} cases</strong>
-                          <span className={weeklyCaseData[i].change.startsWith('+') ? styles.positive : styles.negative}>
+                          <span
+                            className={
+                              weeklyCaseData[i].change.startsWith("+")
+                                ? styles.positive
+                                : styles.negative
+                            }
+                          >
                             {weeklyCaseData[i].change}
                           </span>
                         </div>
@@ -377,22 +471,11 @@ const Graphs = () => {
           <div className={styles.cardHeader}>
             <div>
               <h3 className={styles.chartTitle}>Monthly Case Status Trend</h3>
-              <p className={styles.chartSubtitle}>Approved, pending, and denied cases</p>
+              <p className={styles.chartSubtitle}>
+                Approved, pending, and denied cases
+              </p>
             </div>
-            <div className={styles.legendContainer}>
-              <div className={styles.legendItem}>
-                <span className={`${styles.legendDot} ${styles.approved}`}></span>
-                <span>Approved</span>
-              </div>
-              <div className={styles.legendItem}>
-                <span className={`${styles.legendDot} ${styles.pending}`}></span>
-                <span>Pending</span>
-              </div>
-              <div className={styles.legendItem}>
-                <span className={`${styles.legendDot} ${styles.denied}`}></span>
-                <span>Denied</span>
-              </div>
-            </div>
+            <div className={styles.legendContainer}></div>
           </div>
           <div className={styles.chartWrapper}>
             <div className={styles.yAxis}>
@@ -410,21 +493,41 @@ const Graphs = () => {
                 onMouseMove={(e) => {
                   const rect = e.currentTarget.getBoundingClientRect();
                   const x = e.clientX - rect.left;
-                  const index = Math.round((x / rect.width) * (monthlyTrendData.length - 1));
+                  const index = Math.round(
+                    (x / rect.width) * (monthlyTrendData.length - 1)
+                  );
                   setHoveredMonthly(index);
                 }}
                 onMouseLeave={() => setHoveredMonthly(null)}
               >
                 <defs>
-                  <linearGradient id="approvedGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <linearGradient
+                    id="approvedGradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="0%"
+                    y2="100%"
+                  >
                     <stop offset="0%" stopColor="#a78bfa" stopOpacity="0.8" />
                     <stop offset="100%" stopColor="#7c3aed" stopOpacity="0.4" />
                   </linearGradient>
-                  <linearGradient id="pendingGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <linearGradient
+                    id="pendingGradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="0%"
+                    y2="100%"
+                  >
                     <stop offset="0%" stopColor="#fbbf24" stopOpacity="0.6" />
                     <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.3" />
                   </linearGradient>
-                  <linearGradient id="deniedGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <linearGradient
+                    id="deniedGradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="0%"
+                    y2="100%"
+                  >
                     <stop offset="0%" stopColor="#ef4444" stopOpacity="0.6" />
                     <stop offset="100%" stopColor="#dc2626" stopOpacity="0.3" />
                   </linearGradient>
@@ -434,9 +537,14 @@ const Graphs = () => {
                 <polygon
                   points={`
                     0,200
-                    ${normalizedMonthlyTrend.map((d, i) =>
-                      `${(i / (normalizedMonthlyTrend.length - 1)) * 800},${200 - (d.normalized * 1.5)}`
-                    ).join(' ')}
+                    ${normalizedMonthlyTrend
+                      .map(
+                        (d, i) =>
+                          `${(i / (normalizedMonthlyTrend.length - 1)) * 800},${
+                            200 - d.normalized * 1.5
+                          }`
+                      )
+                      .join(" ")}
                     800,200
                   `}
                   fill="url(#approvedGradient)"
@@ -444,9 +552,14 @@ const Graphs = () => {
 
                 {/* Approved line */}
                 <polyline
-                  points={normalizedMonthlyTrend.map((d, i) =>
-                    `${(i / (normalizedMonthlyTrend.length - 1)) * 800},${200 - (d.normalized * 1.5)}`
-                  ).join(' ')}
+                  points={normalizedMonthlyTrend
+                    .map(
+                      (d, i) =>
+                        `${(i / (normalizedMonthlyTrend.length - 1)) * 800},${
+                          200 - d.normalized * 1.5
+                        }`
+                    )
+                    .join(" ")}
                   fill="none"
                   stroke="#a78bfa"
                   strokeWidth="2"
@@ -454,22 +567,21 @@ const Graphs = () => {
               </svg>
 
               {hoveredMonthly !== null && (
-                <div className={styles.areaTooltip} style={{
-                  left: `${(hoveredMonthly / (monthlyTrendData.length - 1)) * 100}%`
-                }}>
+                <div
+                  className={styles.areaTooltip}
+                  style={{
+                    left: `${
+                      (hoveredMonthly / (monthlyTrendData.length - 1)) * 90
+                    }%`,
+                  }}
+                >
                   <div className={styles.tooltipContent}>
                     <strong>{monthlyTrendData[hoveredMonthly].month}</strong>
                     <div className={styles.tooltipRow}>
                       <span className={styles.approved}>●</span>
-                      <span>Approved: {monthlyTrendData[hoveredMonthly].approved}</span>
-                    </div>
-                    <div className={styles.tooltipRow}>
-                      <span className={styles.pending}>●</span>
-                      <span>Pending: {monthlyTrendData[hoveredMonthly].pending}</span>
-                    </div>
-                    <div className={styles.tooltipRow}>
-                      <span className={styles.denied}>●</span>
-                      <span>Denied: {monthlyTrendData[hoveredMonthly].denied}</span>
+                      <span>
+                        Volume: {monthlyTrendData[hoveredMonthly].approved}
+                      </span>
                     </div>
                   </div>
                 </div>

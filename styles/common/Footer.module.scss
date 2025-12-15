@@ -1,0 +1,140 @@
+.footer {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #e2e8f0;
+  padding: 3rem 0 1.5rem;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footerContent {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+/* Brand Section */
+.brandSection {
+  max-width: 400px;
+}
+
+.brandTitle {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  font-family: 'inter', sans-serif;
+}
+
+.brandDescription {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+  font-family: 'inter', sans-serif;
+}
+
+/* Link Sections */
+.linkSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionTitle {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  font-family: 'inter', sans-serif;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.link {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  text-decoration: none;
+  font-family: 'inter', sans-serif;
+  transition: all 0.2s ease;
+  display: inline-block;
+
+  &:hover {
+    color: #60a5fa;
+    transform: translateX(4px);
+  }
+}
+
+/* Footer Bottom */
+.footerBottom {
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.copyright {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin: 0;
+  font-family: 'inter', sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .footerContent {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .brandSection {
+    grid-column: 1 / -1;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 0 1rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .footerContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .brandSection {
+    grid-column: 1;
+  }
+
+  .brandTitle {
+    font-size: 1.1rem;
+  }
+
+  .brandDescription {
+    font-size: 0.85rem;
+  }
+
+  .sectionTitle {
+    font-size: 0.95rem;
+  }
+
+  .link {
+    font-size: 0.85rem;
+  }
+}

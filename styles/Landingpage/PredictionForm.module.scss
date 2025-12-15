@@ -1,0 +1,399 @@
+.container {
+  width: 100%;
+  padding: 3rem 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  color: #0f172a;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  font-family: 'inter', sans-serif;
+}
+
+.formsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.formCard {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+  }
+}
+
+.formTitle {
+  color: #0f172a;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  font-family: 'inter', sans-serif;
+}
+
+.formDescription {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin: 0 0 1.5rem 0;
+  font-family: 'inter', sans-serif;
+  line-height: 1.5;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  display: block;
+  color: #334155;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-family: 'inter', sans-serif;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  color: #0f172a;
+  font-size: 0.95rem;
+  font-family: 'inter', sans-serif;
+  transition: all 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: #2563eb;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+
+  &::placeholder {
+    color: #94a3b8;
+  }
+}
+
+.helperText {
+  color: #64748b;
+  font-size: 0.75rem;
+  margin: 0.5rem 0 0 0;
+  font-family: 'inter', sans-serif;
+  line-height: 1.4;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+}
+
+/* Prediction Card - Detailed Results */
+.predictionCard {
+  margin-top: 1.5rem;
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  border-radius: 12px;
+  border: 2px solid #3b82f6;
+  overflow: hidden;
+}
+
+.predictionHeader {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.predictionMainTitle {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+  font-family: 'inter', sans-serif;
+}
+
+.predictionDate {
+  color: #60a5fa;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  font-family: 'inter', sans-serif;
+}
+
+.predictionBody {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Date Row */
+.dateRow {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.dateItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.dateLabel {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: 'inter', sans-serif;
+}
+
+.dateValue {
+  color: #e2e8f0;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'inter', sans-serif;
+}
+
+.arrowIcon {
+  color: #60a5fa;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+/* Stats Row */
+.statsRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.statItem {
+  flex: 1;
+  min-width: 150px;
+}
+
+.statLabel {
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  font-weight: 400;
+  font-family: 'inter', sans-serif;
+}
+
+/* Employer Section */
+.employerSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.employerLabel {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: 'inter', sans-serif;
+}
+
+.employerValue {
+  color: #60a5fa;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'inter', sans-serif;
+}
+
+/* Queue Section */
+.queueSection {
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.queueTitle {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  font-family: 'inter', sans-serif;
+}
+
+.queueGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.queueItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.queueLabel {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-weight: 400;
+  font-family: 'inter', sans-serif;
+}
+
+.queueValue {
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: 'inter', sans-serif;
+}
+
+/* Breakdown Section */
+.breakdownSection {
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.breakdownTitle {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  font-family: 'inter', sans-serif;
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: rgba(59, 130, 246, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #8b5cf6 0%, #ec4899 100%);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progressLabels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.progressLabel {
+  color: #cbd5e1;
+  font-size: 0.8rem;
+  font-weight: 400;
+  font-family: 'inter', sans-serif;
+}
+
+.journeyLabel {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-align: right;
+  font-family: 'inter', sans-serif;
+}
+
+.errorCard {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: #fef2f2;
+  border-radius: 8px;
+  border: 1px solid #fecaca;
+
+  p {
+    color: #dc2626;
+    font-size: 0.9rem;
+    margin: 0;
+    font-family: 'inter', sans-serif;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .formsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .formCard {
+    padding: 1.5rem;
+  }
+
+  .formTitle {
+    font-size: 1.1rem;
+  }
+
+  .formDescription {
+    font-size: 0.85rem;
+  }
+
+  .predictionDate {
+    font-size: 1.5rem;
+  }
+
+  .dateRow {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .arrowIcon {
+    transform: rotate(90deg);
+  }
+
+  .queueGrid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .statsRow {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

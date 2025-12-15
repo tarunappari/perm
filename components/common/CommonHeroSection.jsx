@@ -1,11 +1,9 @@
-'use client';
-import React from 'react';
-import styles from '@/styles/Landingpage/HeroSection.module.scss';
-import PredictionForms from './PredictionForms';
+import React from 'react'
+import styles from '@/styles/Landingpage/HeroSection.module.scss'
 
-const HeroSection = () => {
+const CommonHeroSection = () => {
   return (
-    <section className={styles.heroSection}>
+     <section className={styles.heroSection}>
       <div className={styles.container}>
         {/* Main Hero Content */}
         <div className={styles.heroContent}>
@@ -26,9 +24,8 @@ const HeroSection = () => {
           </p>
         </div>
       </div>
-      <PredictionForms />
     </section>
   );
-};
+}
 
-export default HeroSection;
+export default CommonHeroSection

@@ -1,16 +1,16 @@
 @use "tailwindcss";
 
-
 @font-face {
-  font-family: "inter";
-  src: url("/fonts/inter.ttf") format("truetype");
+  font-family: "opensans";
+  src: url("/fonts/opensans.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
+
 @font-face {
-  font-family: "krub";
-  src: url("/fonts/krub.ttf") format("truetype");
+  font-family: "roboto";
+  src: url("/fonts/roboto.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -18,16 +18,28 @@
 :root {
   --white: #ffffff;
   --black: #000000;
+  --background: #f8fafc;
+  --foreground: #0f172a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --white: #ffffff;
-    --black: #000000;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
-  
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'roboto', sans-serif !important;
+}
+
+
+h1,h2,h3,h4{
+  font-family: 'roboto', sans-serif !important;
+  color: #181818;
+}
+
+p,span,a{
+  font-family: 'roboto', sans-serif !important;
 }

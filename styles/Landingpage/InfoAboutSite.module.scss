@@ -1,0 +1,85 @@
+.container {
+  padding: 3rem 8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  & > div {
+    display: flex;
+    gap: 2rem;
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      h2 {
+        font-size: 1.75rem;
+        font-weight: 700;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+
+      .blue {
+        margin: 0.3rem 0;
+        border: 1px solid #2563eb;
+        color: #2563eb;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        font-weight: 700;
+        letter-spacing: 0.05rem;
+        background-color: #bbcdf1;
+        font-size: 0.95rem;
+      }
+
+      p {
+        font-weight: 500;
+        color: #1f1e1e;
+        font-size: 0.95rem;
+      }
+
+      span {
+        font-weight: 900;
+      }
+
+      ul {
+        padding: 1rem;
+        list-style-type: circle;
+        li {
+          padding-bottom: 0.25rem;
+          font-size: 0.95rem;
+        }
+      }
+    }
+  }
+
+  .gridLayout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .keyBenefits {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #2563eb;
+    color: #2563eb;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+    background-color: #d6e0f4;
+    ul {
+      list-style-type: none;
+    }
+  }
+
+  .disclaimer{
+    p{
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+  }
+}
